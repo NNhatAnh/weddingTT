@@ -1,496 +1,745 @@
 <!doctype html>
 <html lang="vi">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Đám Cưới Hoàng Trọng & Bùi Trang</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        />
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Đám Cưới Hoàng Trọng & Bùi Trang</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
-        rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        serif: ['"Playfair Display"', "serif"],
-                        cursive: ['"Great Vibes"', "cursive"],
-                        sans: ['"Montserrat"', "sans-serif"],
-                    },
-                    colors: {
-                        burgundy: "#800020",
-                        rosegold: "#B76E79",
-                        cream: "#FAF7F2",
-                        gold: "#D4AF37",
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        fontFamily: {
+                            serif: ['"Playfair Display"', "serif"],
+                            cursive: ['"Great Vibes"', "cursive"],
+                            sans: ['"Montserrat"', "sans-serif"],
+                        },
+                        colors: {
+                            burgundy: "#800020",
+                            rosegold: "#B76E79",
+                            cream: "#FAF7F2",
+                            gold: "#D4AF37",
+                        },
                     },
                 },
-            },
-        };
-    </script>
-    <style>
-        html {
-            scroll-behavior: smooth;
-        }
+            };
+        </script>
+        <style>
+            html {
+                scroll-behavior: smooth;
+            }
 
-        .bg-overlay {
-            background: linear-gradient(rgba(0, 0, 0, 0.45),
-                    rgba(0, 0, 0, 0.45));
-        }
+            .bg-overlay {
+                background: linear-gradient(
+                    rgba(0, 0, 0, 0.45),
+                    rgba(0, 0, 0, 0.45)
+                );
+            }
 
-        #volume-control {
-            appearance: none;
-            -webkit-appearance: none;
-            height: 6px;
-            border-radius: 9999px;
-            background: linear-gradient(to right,
+            #volume-control {
+                appearance: none;
+                -webkit-appearance: none;
+                height: 6px;
+                border-radius: 9999px;
+                background: linear-gradient(
+                    to right,
                     #800020 0%,
                     #800020 var(--volume-progress, 100%),
                     #eadde0 var(--volume-progress, 100%),
-                    #eadde0 100%);
-            outline: none;
-        }
+                    #eadde0 100%
+                );
+                outline: none;
+            }
 
-        #volume-control::-webkit-slider-thumb {
-            appearance: none;
-            -webkit-appearance: none;
-            width: 16px;
-            height: 16px;
-            border: 3px solid white;
-            border-radius: 50%;
-            background: #800020;
-            box-shadow: 0 1px 4px rgba(55, 10, 24, 0.3);
-            cursor: pointer;
-        }
+            #volume-control::-webkit-slider-thumb {
+                appearance: none;
+                -webkit-appearance: none;
+                width: 16px;
+                height: 16px;
+                border: 3px solid white;
+                border-radius: 50%;
+                background: #800020;
+                box-shadow: 0 1px 4px rgba(55, 10, 24, 0.3);
+                cursor: pointer;
+            }
 
-        #volume-control::-moz-range-thumb {
-            width: 11px;
-            height: 11px;
-            border: 3px solid white;
-            border-radius: 50%;
-            background: #800020;
-            box-shadow: 0 1px 4px rgba(55, 10, 24, 0.3);
-            cursor: pointer;
-        }
+            #volume-control::-moz-range-thumb {
+                width: 11px;
+                height: 11px;
+                border: 3px solid white;
+                border-radius: 50%;
+                background: #800020;
+                box-shadow: 0 1px 4px rgba(55, 10, 24, 0.3);
+                cursor: pointer;
+            }
 
-        #volume-control:focus-visible {
-            box-shadow: 0 0 0 3px rgba(128, 0, 32, 0.16);
-        }
-    </style>
-</head>
+            #volume-control:focus-visible {
+                box-shadow: 0 0 0 3px rgba(128, 0, 32, 0.16);
+            }
+        </style>
+    </head>
 
-<body class="bg-cream text-gray-800 font-sans antialiased">
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100 py-3 px-6">
-        <div class="max-w-6xl mx-auto flex justify-between items-center">
-            <a href="#" class="font-cursive text-2xl md:text-3xl text-burgundy font-bold">Trọng & Trang</a>
-            <div class="hidden md:flex space-x-6 text-sm font-medium uppercase tracking-wider text-gray-700">
-                <a href="#about" class="hover:text-burgundy transition">Cặp Đôi</a>
-                <a href="#event" class="hover:text-burgundy transition">Sự Kiện</a>
-                <a href="#gallery" class="hover:text-burgundy transition">Album Ảnh</a>
-                <a href="#gift" class="hover:text-burgundy transition">Mừng Cưới</a>
+    <body class="bg-cream text-gray-800 font-sans antialiased">
+        <nav
+            class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100 py-3 px-6"
+        >
+            <div class="max-w-6xl mx-auto flex justify-between items-center">
+                <a
+                    href="#"
+                    class="font-cursive text-2xl md:text-3xl text-burgundy font-bold"
+                    >Trọng & Trang</a
+                >
+                <div
+                    class="hidden md:flex space-x-6 text-sm font-medium uppercase tracking-wider text-gray-700"
+                >
+                    <a href="#about" class="hover:text-burgundy transition"
+                        >Cặp Đôi</a
+                    >
+                    <a href="#event" class="hover:text-burgundy transition"
+                        >Sự Kiện</a
+                    >
+                    <a href="#gallery" class="hover:text-burgundy transition"
+                        >Album Ảnh</a
+                    >
+                    <a href="#gift" class="hover:text-burgundy transition"
+                        >Mừng Cưới</a
+                    >
+                </div>
+                <a
+                    href="#xac-nhan-tham-du"
+                    class="bg-burgundy text-white text-xs uppercase font-semibold px-4 py-2 rounded-full shadow hover:bg-rosegold transition"
+                >
+                    Xác nhận tham dự
+                </a>
             </div>
-            <a href="#xac-nhan-tham-du"
-                class="bg-burgundy text-white text-xs uppercase font-semibold px-4 py-2 rounded-full shadow hover:bg-rosegold transition">
-                Xác nhận tham dự
-            </a>
-        </div>
-    </nav>
+        </nav>
 
-    <section class="relative h-screen flex items-center justify-center text-center text-white bg-cover bg-top"
-        style="background-image: url(&quot;images/ONG_4149.JPG&quot;)">
-        <div class="absolute inset-0 bg-overlay"></div>
-        <div class="relative z-10 px-4 max-w-3xl">
-            <p class="text-lg md:text-xl font-light uppercase tracking-widest mb-3">
-                Save The Date
-            </p>
-            <h1 class="font-cursive text-6xl md:text-8xl mb-4 text-amber-100">
-                Hoàng Trọng & Bùi Trang
-            </h1>
-            <p class="font-serif text-lg md:text-2xl italic font-light mb-8">
-                "Hành trình hạnh phúc bắt đầu từ đây"
-            </p>
+        <section
+            class="relative h-screen flex items-center justify-center text-center text-white bg-cover bg-top"
+            style="background-image: url(&quot;images/ONG_4149.JPG&quot;)"
+        >
+            <div class="absolute inset-0 bg-overlay"></div>
+            <div class="relative z-10 px-4 max-w-3xl">
+                <p
+                    class="text-lg md:text-xl font-light uppercase tracking-widest mb-3"
+                >
+                    Save The Date
+                </p>
+                <h1
+                    class="font-cursive text-6xl md:text-8xl mb-4 text-amber-100"
+                >
+                    Hoàng Trọng & Bùi Trang
+                </h1>
+                <p
+                    class="font-serif text-lg md:text-2xl italic font-light mb-8"
+                >
+                    "Hành trình hạnh phúc bắt đầu từ đây"
+                </p>
 
-            <div id="countdown"
-                class="grid grid-cols-4 gap-3 md:gap-6 max-w-md mx-auto mb-8 bg-black/40 p-4 rounded-xl backdrop-blur-sm border border-white/20">
-                <div>
-                    <span id="days" class="block font-serif text-2xl md:text-4xl font-bold">00</span>
-                    <span class="text-xs uppercase tracking-wider">Ngày</span>
+                <div
+                    id="countdown"
+                    class="grid grid-cols-4 gap-3 md:gap-6 max-w-md mx-auto mb-8 bg-black/40 p-4 rounded-xl backdrop-blur-sm border border-white/20"
+                >
+                    <div>
+                        <span
+                            id="days"
+                            class="block font-serif text-2xl md:text-4xl font-bold"
+                            >00</span
+                        >
+                        <span class="text-xs uppercase tracking-wider"
+                            >Ngày</span
+                        >
+                    </div>
+                    <div>
+                        <span
+                            id="hours"
+                            class="block font-serif text-2xl md:text-4xl font-bold"
+                            >00</span
+                        >
+                        <span class="text-xs uppercase tracking-wider"
+                            >Giờ</span
+                        >
+                    </div>
+                    <div>
+                        <span
+                            id="minutes"
+                            class="block font-serif text-2xl md:text-4xl font-bold"
+                            >00</span
+                        >
+                        <span class="text-xs uppercase tracking-wider"
+                            >Phút</span
+                        >
+                    </div>
+                    <div>
+                        <span
+                            id="seconds"
+                            class="block font-serif text-2xl md:text-4xl font-bold"
+                            >00</span
+                        >
+                        <span class="text-xs uppercase tracking-wider"
+                            >Giây</span
+                        >
+                    </div>
                 </div>
-                <div>
-                    <span id="hours" class="block font-serif text-2xl md:text-4xl font-bold">00</span>
-                    <span class="text-xs uppercase tracking-wider">Giờ</span>
-                </div>
-                <div>
-                    <span id="minutes" class="block font-serif text-2xl md:text-4xl font-bold">00</span>
-                    <span class="text-xs uppercase tracking-wider">Phút</span>
-                </div>
-                <div>
-                    <span id="seconds" class="block font-serif text-2xl md:text-4xl font-bold">00</span>
-                    <span class="text-xs uppercase tracking-wider">Giây</span>
-                </div>
+
+                <a
+                    href="#event"
+                    class="inline-block border-2 border-white text-white px-8 py-3 rounded-full uppercase text-xs font-semibold tracking-wider hover:bg-white hover:text-burgundy transition duration-300"
+                >
+                    Xem Lịch Trình
+                </a>
             </div>
+        </section>
 
-            <a href="#event"
-                class="inline-block border-2 border-white text-white px-8 py-3 rounded-full uppercase text-xs font-semibold tracking-wider hover:bg-white hover:text-burgundy transition duration-300">
-                Xem Lịch Trình
-            </a>
-        </div>
-    </section>
-
-    <section id="about" class="py-20 px-6 max-w-5xl mx-auto text-center">
-        <h2 class="font-cursive text-5xl text-burgundy mb-2">
-            Chú Rể & Cô Dâu
-        </h2>
-        <p class="font-serif italic text-gray-600 mb-12">
-            Tình yêu không phải là nhìn nhau, mà là cùng nhìn về một hướng.
-        </p>
-
-        <div class="grid md:grid-cols-2 gap-12 items-center">
-            <div class="space-y-4 bg-white p-8 rounded-2xl shadow-sm border border-stone-100">
-                <div class="w-48 h-48 mx-auto rounded-full overflow-hidden shadow-lg border-4 border-rosegold/30">
-                    <img src="images/ONG_3737.jpeg" alt="Chú rể Hoàng Văn Trọng" class="w-full h-full object-cover" />
-                </div>
-                <h3 class="font-serif text-2xl font-bold text-burgundy">
-                    Hoàng Văn Trọng
-                </h3>
-                <p class="text-xs uppercase tracking-widest text-rosegold font-semibold">
-                    Chú Rể
-                </p>
-                <p class="text-gray-600 text-sm leading-relaxed">
-                    Chàng trai kiên định, chu đáo và luôn dành trọn sự yêu
-                    thương, chở che cho người bạn đời của mình.
-                </p>
-            </div>
-            <div class="space-y-4 bg-white p-8 rounded-2xl shadow-sm border border-stone-100">
-                <div class="w-48 h-48 mx-auto rounded-full overflow-hidden shadow-lg border-4 border-rosegold/30">
-                    <img src="images/ONG_4026.JPG" alt="Cô dâu Bùi Thị Trang" class="w-full h-full object-cover" />
-                </div>
-                <h3 class="font-serif text-2xl font-bold text-burgundy">
-                    Bùi Thị Trang
-                </h3>
-                <p class="text-xs uppercase tracking-widest text-rosegold font-semibold">
-                    Cô Dâu
-                </p>
-                <p class="text-gray-600 text-sm leading-relaxed">
-                    Cô gái dịu dàng, tinh tế và luôn mang lại nụ cười, ấm áp
-                    cho gia đình nhỏ tương lai.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <section id="event" class="py-20 bg-stone-100 px-6">
-        <div class="max-w-5xl mx-auto text-center">
+        <section id="about" class="py-20 px-6 max-w-5xl mx-auto text-center">
             <h2 class="font-cursive text-5xl text-burgundy mb-2">
-                Thời Gian & Địa Điểm
+                Chú Rể & Cô Dâu
             </h2>
             <p class="font-serif italic text-gray-600 mb-12">
-                Rất hân hạnh được đón tiếp quý khách đến chung vui cùng gia
-                đình chúng tôi
+                Tình yêu không phải là nhìn nhau, mà là cùng nhìn về một hướng.
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div
+                    class="space-y-4 bg-white p-8 rounded-2xl shadow-sm border border-stone-100"
+                >
+                    <div
+                        class="w-48 h-48 mx-auto rounded-full overflow-hidden shadow-lg border-4 border-rosegold/30"
+                    >
+                        <img
+                            src="images/ONG_3737.jpeg"
+                            alt="Chú rể Hoàng Văn Trọng"
+                            class="w-full h-full object-cover"
+                        />
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-burgundy">
+                        Hoàng Văn Trọng
+                    </h3>
+                    <p
+                        class="text-xs uppercase tracking-widest text-rosegold font-semibold"
+                    >
+                        Chú Rể
+                    </p>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Chàng trai kiên định, chu đáo và luôn dành trọn sự yêu
+                        thương, chở che cho người bạn đời của mình.
+                    </p>
+                </div>
+                <div
+                    class="space-y-4 bg-white p-8 rounded-2xl shadow-sm border border-stone-100"
+                >
+                    <div
+                        class="w-48 h-48 mx-auto rounded-full overflow-hidden shadow-lg border-4 border-rosegold/30"
+                    >
+                        <img
+                            src="images/ONG_4026.JPG"
+                            alt="Cô dâu Bùi Thị Trang"
+                            class="w-full h-full object-cover"
+                        />
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-burgundy">
+                        Bùi Thị Trang
+                    </h3>
+                    <p
+                        class="text-xs uppercase tracking-widest text-rosegold font-semibold"
+                    >
+                        Cô Dâu
+                    </p>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Cô gái dịu dàng, tinh tế và luôn mang lại nụ cười, ấm áp
+                        cho gia đình nhỏ tương lai.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="event" class="py-20 bg-stone-100 px-6">
+            <div class="max-w-5xl mx-auto text-center">
+                <h2 class="font-cursive text-5xl text-burgundy mb-2">
+                    Thời Gian & Địa Điểm
+                </h2>
+                <p class="font-serif italic text-gray-600 mb-12">
+                    Rất hân hạnh được đón tiếp quý khách đến chung vui cùng gia
+                    đình chúng tôi
+                </p>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div
+                        class="bg-white p-8 rounded-2xl shadow-sm space-y-4 border-t-4 border-burgundy"
+                    >
+                        <div class="text-burgundy text-3xl">
+                            <i class="fa-solid fa-heart"></i>
+                        </div>
+                        <h3 class="font-serif text-2xl font-bold">
+                            Lễ Thành Hôn (Nhà Trai)
+                        </h3>
+                        <p class="text-sm font-semibold text-gray-500">
+                            <i class="fa-regular fa-clock mr-1"></i> 09:00 -
+                            Ngày 18/10/2026
+                        </p>
+                        <p class="text-sm text-gray-600">
+                            <i
+                                class="fa-solid fa-location-dot mr-1 text-rosegold"
+                            ></i>
+                            Tư gia nhà trai
+                        </p>
+                        <a
+                            href="https://maps.app.goo.gl/zn9c4A9Ntsem9Tbo7"
+                            target="_blank"
+                            class="inline-block text-xs uppercase tracking-wider text-burgundy border border-burgundy px-4 py-2 rounded-full hover:bg-burgundy hover:text-white transition"
+                            >Xem bản đồ</a
+                        >
+                    </div>
+                    <div
+                        class="bg-white p-8 rounded-2xl shadow-sm space-y-4 border-t-4 border-rosegold"
+                    >
+                        <div class="text-rosegold text-3xl">
+                            <i class="fa-solid fa-heart"></i>
+                        </div>
+                        <h3 class="font-serif text-2xl font-bold">
+                            Lễ Vũ Quy (Nhà Gái)
+                        </h3>
+                        <p class="text-sm font-semibold text-gray-500">
+                            <i class="fa-regular fa-clock mr-1"></i> 09:00 -
+                            Ngày 17/10/2026
+                        </p>
+                        <p class="text-sm text-gray-600">
+                            <i
+                                class="fa-solid fa-location-dot mr-1 text-rosegold"
+                            ></i>
+                            Tư gia nhà gái
+                        </p>
+                        <a
+                            href="https://maps.app.goo.gl/4i5wqFDXYkfHqy9V6?g_st=ic"
+                            target="_blank"
+                            class="inline-block text-xs uppercase tracking-wider text-burgundy border border-burgundy px-4 py-2 rounded-full hover:bg-burgundy hover:text-white transition"
+                            >Xem bản đồ</a
+                        >
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery" class="py-20 px-6 max-w-6xl mx-auto text-center">
+            <h2 class="font-cursive text-5xl text-burgundy mb-2">
+                Album Pre-Wedding
+            </h2>
+            <p class="font-serif italic text-gray-600 mb-12">
+                Những khoảnh khắc ngọt ngào của chúng mình
+            </p>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                <div
+                    class="overflow-hidden rounded-xl shadow-sm aspect-square bg-gray-200"
+                >
+                    <img
+                        src="images/ONG_3505.JPG"
+                        alt="Cô dâu và chú rể trong trang phục đỏ"
+                        class="w-full h-full object-cover hover:scale-105 transition duration-500"
+                    />
+                </div>
+                <div
+                    class="overflow-hidden rounded-xl shadow-sm aspect-square bg-gray-200"
+                >
+                    <img
+                        src="images/ONG_3898.JPG"
+                        alt="Khoảnh khắc thân mật của cô dâu và chú rể"
+                        class="w-full h-full object-cover hover:scale-105 transition duration-500"
+                    />
+                </div>
+                <div
+                    class="overflow-hidden rounded-xl shadow-sm aspect-square bg-gray-200"
+                >
+                    <img
+                        src="images/ONG_4112.jpeg"
+                        alt="Cô dâu và chú rể nhìn nhau"
+                        class="w-full h-full object-cover hover:scale-105 transition duration-500"
+                    />
+                </div>
+                <div
+                    class="overflow-hidden rounded-xl shadow-sm aspect-square bg-gray-200"
+                >
+                    <img
+                        src="images/ONG_4104.jpeg"
+                        alt="Cô dâu và chú rể trong điệu nhảy dưới ánh đèn"
+                        class="w-full h-full object-cover hover:scale-105 transition duration-500"
+                    />
+                </div>
+                <div
+                    class="overflow-hidden rounded-xl shadow-sm aspect-square bg-gray-200"
+                >
+                    <img
+                        src="images/ONG_3620.jpeg"
+                        alt="Cô dâu cầm bó hoa đỏ"
+                        class="w-full h-full object-cover hover:scale-105 transition duration-500"
+                    />
+                </div>
+                <div
+                    class="overflow-hidden rounded-xl shadow-sm aspect-square bg-gray-200"
+                >
+                    <img
+                        src="images/ONG_3478.JPG"
+                        alt="Cô dâu và chú rể bên khung cửa sáng"
+                        class="w-full h-full object-cover hover:scale-105 transition duration-500"
+                    />
+                </div>
+            </div>
+        </section>
+
+        <section
+            id="xac-nhan-tham-du"
+            class="py-20 bg-burgundy text-white px-6"
+        >
+            <div class="max-w-xl mx-auto text-center">
+                <h2 class="font-cursive text-5xl mb-2 text-amber-100">
+                    Xác Nhận Tham Dự
+                </h2>
+                <p class="font-serif italic mb-8 text-stone-200">
+                    Vui lòng phản hồi trước ngày 12/10/2026 để chuẩn bị đón tiếp
+                    chu đáo nhất
+                </p>
+
+                <form
+                    action="https://formsubmit.co/anhnhatnguyen2103@gmail.com"
+                    method="POST"
+                    class="space-y-4 text-left bg-white text-gray-800 p-8 rounded-2xl shadow-xl"
+                >
+                    <input type="hidden" name="_captcha" value="false" />
+
+                    <div>
+                        <label class="block text-xs font-bold uppercase mb-1"
+                            >Họ và Tên</label
+                        >
+                        <input
+                            type="text"
+                            name="name"
+                            required
+                            placeholder="Nhập tên của bạn"
+                            class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-burgundy"
+                        />
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold uppercase mb-1"
+                            >Xác nhận tham dự</label
+                        >
+                        <select
+                            name="attendance"
+                            class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-burgundy"
+                        >
+                            <option value="Tôi sẽ tham dự">
+                                Tôi sẽ tham dự
+                            </option>
+                            <option value="Rất tiếc tôi không thể tham dự">
+                                Rất tiếc tôi không thể tham dự
+                            </option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold uppercase mb-1"
+                            >Khách của ai?</label
+                        >
+                        <select
+                            name="guest_of"
+                            class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-burgundy"
+                        >
+                            <option value="Khách Chú Rể (Hoàng Trọng)">
+                                Khách Chú Rể (Hoàng Trọng)
+                            </option>
+                            <option value="Khách Cô Dâu (Bùi Trang)">
+                                Khách Cô Dâu (Bùi Trang)
+                            </option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold uppercase mb-1"
+                            >Lời chúc gửi đến cặp đôi</label
+                        >
+                        <textarea
+                            name="message"
+                            rows="3"
+                            placeholder="Gửi lời chúc mừng..."
+                            class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-burgundy"
+                        ></textarea>
+                    </div>
+
+                    <button
+                        type="submit"
+                        class="w-full bg-burgundy text-white font-bold py-3 uppercase tracking-wider text-xs rounded-lg shadow hover:bg-rosegold transition"
+                    >
+                        Gửi Phản Hồi
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <section id="gift" class="py-20 px-6 max-w-4xl mx-auto text-center">
+            <h2 class="font-cursive text-5xl text-burgundy mb-2">
+                Hộp Mừng Cưới
+            </h2>
+            <p class="font-serif italic text-gray-600 mb-12">
+                Sự hiện diện của quý vị là món quà lớn nhất dành cho chúng tôi
             </p>
 
             <div class="grid md:grid-cols-2 gap-8">
-                <div class="bg-white p-8 rounded-2xl shadow-sm space-y-4 border-t-4 border-burgundy">
-                    <div class="text-burgundy text-3xl">
-                        <i class="fa-solid fa-heart"></i>
-                    </div>
-                    <h3 class="font-serif text-2xl font-bold">
-                        Lễ Thành Hôn (Nhà Trai)
+                <div
+                    class="bg-white p-6 rounded-2xl shadow border border-gray-100"
+                >
+                    <h3 class="font-serif text-xl font-bold text-burgundy mb-2">
+                        Chú Rể: Hoàng Văn Trọng
                     </h3>
-                    <p class="text-sm font-semibold text-gray-500">
-                        <i class="fa-regular fa-clock mr-1"></i> 09:00 -
-                        Ngày 18/10/2026
-                    </p>
-                    <p class="text-sm text-gray-600">
-                        <i class="fa-solid fa-location-dot mr-1 text-rosegold"></i>
-                        Tư gia nhà trai
-                    </p>
-                    <a href="https://maps.app.goo.gl/zn9c4A9Ntsem9Tbo7" target="_blank"
-                        class="inline-block text-xs uppercase tracking-wider text-burgundy border border-burgundy px-4 py-2 rounded-full hover:bg-burgundy hover:text-white transition">Xem
-                        bản đồ</a>
-                </div>
-                <div class="bg-white p-8 rounded-2xl shadow-sm space-y-4 border-t-4 border-rosegold">
-                    <div class="text-rosegold text-3xl">
-                        <i class="fa-solid fa-heart"></i>
+                    <div
+                        class="w-48 h-48 mx-auto bg-gray-100 rounded-lg flex items-center justify-center my-4"
+                    >
+                        <span class="text-xs text-gray-400"
+                            >[Ảnh QR Ngân Hàng Chú Rể]</span
+                        >
                     </div>
-                    <h3 class="font-serif text-2xl font-bold">
-                        Lễ Vũ Quy (Nhà Gái)
-                    </h3>
-                    <p class="text-sm font-semibold text-gray-500">
-                        <i class="fa-regular fa-clock mr-1"></i> 09:00 -
-                        Ngày 17/10/2026
-                    </p>
+                    <div
+                        class="flex flex-wrap items-center justify-center gap-2 text-sm text-gray-600"
+                    >
+                        <p>
+                            Số tài khoản:
+                            <span class="font-bold">19036273763010</span>
+                        </p>
+                        <button
+                            type="button"
+                            data-copy-account="19036273763010"
+                            class="inline-flex items-center gap-1 rounded-full border border-burgundy/30 px-3 py-1 text-xs font-semibold text-burgundy hover:bg-burgundy hover:text-white transition"
+                            aria-label="Sao chép số tài khoản chú rể"
+                        >
+                            <i
+                                class="fa-regular fa-copy"
+                                aria-hidden="true"
+                            ></i>
+                            <span data-copy-label>Sao chép</span>
+                        </button>
+                    </div>
+                    <p
+                        class="mt-1 text-xs text-gray-500"
+                        data-copy-status
+                        aria-live="polite"
+                    ></p>
                     <p class="text-sm text-gray-600">
-                        <i class="fa-solid fa-location-dot mr-1 text-rosegold"></i>
-                        Tư gia nhà gái
+                        Ngân hàng: <span class="font-bold">Techcombank</span>
                     </p>
-                    <a href="https://maps.app.goo.gl/4i5wqFDXYkfHqy9V6?g_st=ic" target="_blank"
-                        class="inline-block text-xs uppercase tracking-wider text-burgundy border border-burgundy px-4 py-2 rounded-full hover:bg-burgundy hover:text-white transition">Xem
-                        bản đồ</a>
+                </div>
+                <div
+                    class="bg-white p-6 rounded-2xl shadow border border-gray-100"
+                >
+                    <h3 class="font-serif text-xl font-bold text-burgundy mb-2">
+                        Cô Dâu: Bùi Thị Trang
+                    </h3>
+                    <div
+                        class="w-48 h-48 mx-auto bg-gray-100 rounded-lg flex items-center justify-center my-4"
+                    >
+                        <span class="text-xs text-gray-400"
+                            >[Ảnh QR Ngân Hàng Cô Dâu]</span
+                        >
+                    </div>
+                    <div
+                        class="flex flex-wrap items-center justify-center gap-2 text-sm text-gray-600"
+                    >
+                        <p>
+                            Số tài khoản:
+                            <span class="font-bold">2153287445</span>
+                        </p>
+                        <button
+                            type="button"
+                            data-copy-account="2153287445"
+                            class="inline-flex items-center gap-1 rounded-full border border-burgundy/30 px-3 py-1 text-xs font-semibold text-burgundy hover:bg-burgundy hover:text-white transition"
+                            aria-label="Sao chép số tài khoản cô dâu"
+                        >
+                            <i
+                                class="fa-regular fa-copy"
+                                aria-hidden="true"
+                            ></i>
+                            <span data-copy-label>Sao chép</span>
+                        </button>
+                    </div>
+                    <p
+                        class="mt-1 text-xs text-gray-500"
+                        data-copy-status
+                        aria-live="polite"
+                    ></p>
+                    <p class="text-sm text-gray-600">
+                        Ngân hàng: <span class="font-bold">BIDV</span>
+                    </p>
                 </div>
             </div>
+        </section>
+
+        <div
+            id="music-player"
+            class="fixed bottom-2 right-2 z-50 bg-white/95 backdrop-blur-md border border-rosegold/50 shadow-2xl rounded-2xl p-3 w-64 md:bottom-5 md:right-5 md:p-4 md:w-80 text-gray-800 transition-all duration-300"
+        >
+            <div class="flex items-center justify-between gap-2">
+                <div class="flex items-center space-x-2 overflow-hidden">
+                    <i class="fa-solid fa-music text-burgundy"></i>
+                    <span
+                        id="current-song-title"
+                        class="text-xs font-bold truncate text-burgundy"
+                        >Tên bài hát</span
+                    >
+                </div>
+                <button
+                    type="button"
+                    id="music-player-toggle"
+                    class="shrink-0 w-8 h-8 rounded-full text-gray-600 hover:text-burgundy hover:bg-rose-50 transition"
+                    aria-label="Ẩn trình phát nhạc"
+                    aria-expanded="true"
+                    aria-controls="music-player"
+                    title="Ẩn trình phát nhạc"
+                >
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div id="music-player-content">
+                <div class="mt-3 mb-3">
+                    <select
+                        id="playlist-select"
+                        class="w-full text-xs bg-stone-100 border border-stone-200 rounded px-2 py-2 outline-none focus:ring-1 focus:ring-burgundy"
+                    >
+                        <option value="musics/ngaydautien.mp3">
+                            Ngày Đầu Tiên
+                        </option>
+                        <option value="musics/dungngdungthoidiem.mp3">
+                            Đúng người đúng thời điểm
+                        </option>
+                        <option value="musics/bainaykhongdedidien.mp3">
+                            Bài này không để đi diễn
+                        </option>
+                        <option value="musics/leduong.mp3">Lễ đường</option>
+                        <option value="musics/ido.mp3">I Do</option>
+                        <option value="musics/athousandyears.mp3">
+                            A Thousand Years
+                        </option>
+                    </select>
+                </div>
+
+                <div class="space-y-1 mb-3">
+                    <input
+                        type="range"
+                        id="music-progress"
+                        min="0"
+                        value="0"
+                        class="w-full h-2 bg-gray-300 rounded-lg appearance-none cursor-pointer accent-burgundy"
+                        aria-label="Tiến trình bài hát"
+                    />
+                    <div
+                        class="flex justify-between text-[10px] text-gray-600 font-mono"
+                    >
+                        <span id="current-time">00:00</span>
+                        <span id="total-duration">00:00</span>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-between px-2">
+                    <button
+                        id="loop-btn"
+                        class="text-gray-600 hover:text-burgundy transition text-xs"
+                        title="Lặp lại bài hát"
+                        aria-label="Lặp lại bài hát"
+                    >
+                        <i class="fa-solid fa-repeat"></i>
+                    </button>
+
+                    <div class="flex items-center space-x-2">
+                        <button
+                            id="prev-btn"
+                            class="text-gray-700 hover:text-burgundy transition text-sm"
+                            aria-label="Bài trước"
+                        >
+                            <i class="fa-solid fa-backward-step"></i>
+                        </button>
+                        <button
+                            id="play-pause-btn"
+                            class="w-9 h-9 bg-burgundy text-white rounded-full flex items-center justify-center shadow hover:bg-rosegold transition"
+                            aria-label="Phát hoặc tạm dừng"
+                        >
+                            <i
+                                class="fa-solid fa-play text-sm ml-0.5"
+                                id="play-icon"
+                            ></i>
+                        </button>
+                        <button
+                            id="next-btn"
+                            class="text-gray-700 hover:text-burgundy transition text-sm"
+                            aria-label="Bài tiếp theo"
+                        >
+                            <i class="fa-solid fa-forward-step"></i>
+                        </button>
+                    </div>
+
+                    <div class="flex items-center gap-1.5">
+                        <button
+                            id="mute-btn"
+                            class="shrink-0 text-gray-700 hover:text-burgundy transition text-sm"
+                            title="Tắt/Mở âm thanh"
+                            aria-label="Tắt/Mở âm thanh"
+                        >
+                            <i
+                                class="fa-solid fa-volume-high"
+                                id="volume-icon"
+                            ></i>
+                        </button>
+                        <input
+                            type="range"
+                            id="volume-control"
+                            min="0"
+                            max="1"
+                            step="0.01"
+                            value="1"
+                            class="block w-12 md:w-16 cursor-pointer"
+                            title="Điều chỉnh âm lượng"
+                            aria-label="Âm lượng bài hát"
+                        />
+                        <span
+                            id="volume-level"
+                            class="w-7 text-right text-[10px] font-semibold tabular-nums text-gray-600"
+                            aria-hidden="true"
+                            >100%</span
+                        >
+                    </div>
+                </div>
+            </div>
+
+            <audio id="wedding-audio" preload="metadata"></audio>
         </div>
-    </section>
+        <button
+            type="button"
+            id="music-player-show"
+            class="hidden fixed bottom-2 right-2 z-50 w-12 h-12 rounded-full bg-white/95 border border-rosegold/50 shadow-xl text-burgundy hover:bg-rose-50 transition md:bottom-5 md:right-5"
+            aria-label="Hiện trình phát nhạc"
+            title="Hiện trình phát nhạc"
+        >
+            <i class="fa-solid fa-music" aria-hidden="true"></i>
+        </button>
 
-    <section id="gallery" class="py-20 px-6 max-w-6xl mx-auto text-center">
-        <h2 class="font-cursive text-5xl text-burgundy mb-2">
-            Album Pre-Wedding
-        </h2>
-        <p class="font-serif italic text-gray-600 mb-12">
-            Những khoảnh khắc ngọt ngào của chúng mình
-        </p>
-
-        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-            <div class="overflow-hidden rounded-xl shadow-sm aspect-square bg-gray-200">
-                <img src="images/ONG_3505.JPG" alt="Cô dâu và chú rể trong trang phục đỏ"
-                    class="w-full h-full object-cover hover:scale-105 transition duration-500" />
-            </div>
-            <div class="overflow-hidden rounded-xl shadow-sm aspect-square bg-gray-200">
-                <img src="images/ONG_3898.JPG" alt="Khoảnh khắc thân mật của cô dâu và chú rể"
-                    class="w-full h-full object-cover hover:scale-105 transition duration-500" />
-            </div>
-            <div class="overflow-hidden rounded-xl shadow-sm aspect-square bg-gray-200">
-                <img src="images/ONG_4112.jpeg" alt="Cô dâu và chú rể nhìn nhau"
-                    class="w-full h-full object-cover hover:scale-105 transition duration-500" />
-            </div>
-            <div class="overflow-hidden rounded-xl shadow-sm aspect-square bg-gray-200">
-                <img src="images/ONG_4104.jpeg" alt="Cô dâu và chú rể trong điệu nhảy dưới ánh đèn"
-                    class="w-full h-full object-cover hover:scale-105 transition duration-500" />
-            </div>
-            <div class="overflow-hidden rounded-xl shadow-sm aspect-square bg-gray-200">
-                <img src="images/ONG_3620.jpeg" alt="Cô dâu cầm bó hoa đỏ"
-                    class="w-full h-full object-cover hover:scale-105 transition duration-500" />
-            </div>
-            <div class="overflow-hidden rounded-xl shadow-sm aspect-square bg-gray-200">
-                <img src="images/ONG_3478.JPG" alt="Cô dâu và chú rể bên khung cửa sáng"
-                    class="w-full h-full object-cover hover:scale-105 transition duration-500" />
-            </div>
-        </div>
-    </section>
-
-    <section id="xac-nhan-tham-du" class="py-20 bg-burgundy text-white px-6">
-        <div class="max-w-xl mx-auto text-center">
-            <h2 class="font-cursive text-5xl mb-2 text-amber-100">
-                Xác Nhận Tham Dự
-            </h2>
-            <p class="font-serif italic mb-8 text-stone-200">
-                Vui lòng phản hồi trước ngày 12/10/2026 để chuẩn bị đón tiếp
-                chu đáo nhất
+        <footer class="py-8 bg-stone-900 text-stone-400 text-center text-sm">
+            <p class="font-cursive text-2xl text-white mb-2">
+                Hoàng Trọng & Bùi Trang
             </p>
+            <p>
+                © 2026 Lễ cưới Hoàng Trọng & Bùi Trang. Cảm ơn quý khách đã
+                chung vui cùng chúng tôi!
+            </p>
+        </footer>
 
-            <form action="https://formspree.io/f/mvkgjynb" method="POST"
-                class="space-y-4 text-left bg-white text-gray-800 p-8 rounded-2xl shadow-xl">
-                <div>
-                    <label class="block text-xs font-bold uppercase mb-1">Họ và Tên</label>
-                    <input type="text" name="name" required placeholder="Nhập tên của bạn"
-                        class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-burgundy" />
-                </div>
-
-                <div>
-                    <label class="block text-xs font-bold uppercase mb-1">Xác nhận tham dự</label>
-                    <select name="attendance"
-                        class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-burgundy">
-                        <option value="Tôi sẽ tham dự">
-                            Tôi sẽ tham dự
-                        </option>
-                        <option value="Rất tiếc tôi không thể tham dự">
-                            Rất tiếc tôi không thể tham dự
-                        </option>
-                    </select>
-                </div>
-
-                <div>
-                    <label class="block text-xs font-bold uppercase mb-1">Khách của ai?</label>
-                    <select name="guest_of"
-                        class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-burgundy">
-                        <option value="Khách Chú Rể (Hoàng Trọng)">
-                            Khách Chú Rể (Hoàng Trọng)
-                        </option>
-                        <option value="Khách Cô Dâu (Bùi Trang)">
-                            Khách Cô Dâu (Bùi Trang)
-                        </option>
-                    </select>
-                </div>
-
-                <div>
-                    <label class="block text-xs font-bold uppercase mb-1">Lời chúc gửi đến cặp đôi</label>
-                    <textarea name="message" rows="3" placeholder="Gửi lời chúc mừng..."
-                        class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-burgundy"></textarea>
-                </div>
-
-                <button type="submit"
-                    class="w-full bg-burgundy text-white font-bold py-3 uppercase tracking-wider text-xs rounded-lg shadow hover:bg-rosegold transition">
-                    Gửi Phản Hồi
-                </button>
-            </form>
-        </div>
-    </section>
-
-    <section id="gift" class="py-20 px-6 max-w-4xl mx-auto text-center">
-        <h2 class="font-cursive text-5xl text-burgundy mb-2">
-            Hộp Mừng Cưới
-        </h2>
-        <p class="font-serif italic text-gray-600 mb-12">
-            Sự hiện diện của quý vị là món quà lớn nhất dành cho chúng tôi
-        </p>
-
-        <div class="grid md:grid-cols-2 gap-8">
-            <div class="bg-white p-6 rounded-2xl shadow border border-gray-100">
-                <h3 class="font-serif text-xl font-bold text-burgundy mb-2">
-                    Chú Rể: Hoàng Văn Trọng
-                </h3>
-                <div class="w-48 h-48 mx-auto bg-gray-100 rounded-lg flex items-center justify-center my-4">
-                    <span class="text-xs text-gray-400">[Ảnh QR Ngân Hàng Chú Rể]</span>
-                </div>
-                <div class="flex flex-wrap items-center justify-center gap-2 text-sm text-gray-600">
-                    <p>
-                        Số tài khoản:
-                        <span class="font-bold">19036273763010</span>
-                    </p>
-                    <button type="button" data-copy-account="19036273763010"
-                        class="inline-flex items-center gap-1 rounded-full border border-burgundy/30 px-3 py-1 text-xs font-semibold text-burgundy hover:bg-burgundy hover:text-white transition"
-                        aria-label="Sao chép số tài khoản chú rể">
-                        <i class="fa-regular fa-copy" aria-hidden="true"></i>
-                        <span data-copy-label>Sao chép</span>
-                    </button>
-                </div>
-                <p class="mt-1 text-xs text-gray-500" data-copy-status aria-live="polite"></p>
-                <p class="text-sm text-gray-600">
-                    Ngân hàng: <span class="font-bold">Techcombank</span>
-                </p>
-            </div>
-            <div class="bg-white p-6 rounded-2xl shadow border border-gray-100">
-                <h3 class="font-serif text-xl font-bold text-burgundy mb-2">
-                    Cô Dâu: Bùi Thị Trang
-                </h3>
-                <div class="w-48 h-48 mx-auto bg-gray-100 rounded-lg flex items-center justify-center my-4">
-                    <span class="text-xs text-gray-400">[Ảnh QR Ngân Hàng Cô Dâu]</span>
-                </div>
-                <div class="flex flex-wrap items-center justify-center gap-2 text-sm text-gray-600">
-                    <p>
-                        Số tài khoản:
-                        <span class="font-bold">2153287445</span>
-                    </p>
-                    <button type="button" data-copy-account="2153287445"
-                        class="inline-flex items-center gap-1 rounded-full border border-burgundy/30 px-3 py-1 text-xs font-semibold text-burgundy hover:bg-burgundy hover:text-white transition"
-                        aria-label="Sao chép số tài khoản cô dâu">
-                        <i class="fa-regular fa-copy" aria-hidden="true"></i>
-                        <span data-copy-label>Sao chép</span>
-                    </button>
-                </div>
-                <p class="mt-1 text-xs text-gray-500" data-copy-status aria-live="polite"></p>
-                <p class="text-sm text-gray-600">
-                    Ngân hàng: <span class="font-bold">BIDV</span>
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <div id="music-player"
-        class="fixed bottom-2 right-2 z-50 bg-white/95 backdrop-blur-md border border-rosegold/50 shadow-2xl rounded-2xl p-3 w-64 md:bottom-5 md:right-5 md:p-4 md:w-80 text-gray-800 transition-all duration-300">
-        <div class="flex items-center justify-between gap-2">
-            <div class="flex items-center space-x-2 overflow-hidden">
-                <i class="fa-solid fa-music text-burgundy"></i>
-                <span id="current-song-title" class="text-xs font-bold truncate text-burgundy">Tên bài hát</span>
-            </div>
-            <button type="button" id="music-player-toggle"
-                class="shrink-0 w-8 h-8 rounded-full text-gray-600 hover:text-burgundy hover:bg-rose-50 transition"
-                aria-label="Ẩn trình phát nhạc" aria-expanded="true" aria-controls="music-player"
-                title="Ẩn trình phát nhạc">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-        </div>
-
-        <div id="music-player-content">
-            <div class="mt-3 mb-3">
-                <select id="playlist-select"
-                    class="w-full text-xs bg-stone-100 border border-stone-200 rounded px-2 py-2 outline-none focus:ring-1 focus:ring-burgundy">
-                    <option value="musics/ngaydautien.mp3">
-                        Ngày Đầu Tiên
-                    </option>
-                    <option value="musics/dungngdungthoidiem.mp3">
-                        Đúng người đúng thời điểm
-                    </option>
-                    <option value="musics/bainaykhongdedidien.mp3">
-                        Bài này không để đi diễn
-                    </option>
-                    <option value="musics/leduong.mp3">Lễ đường</option>
-                    <option value="musics/ido.mp3">I Do</option>
-                    <option value="musics/athousandyears.mp3">
-                        A Thousand Years
-                    </option>
-                </select>
-            </div>
-
-            <div class="space-y-1 mb-3">
-                <input type="range" id="music-progress" min="0" value="0"
-                    class="w-full h-2 bg-gray-300 rounded-lg appearance-none cursor-pointer accent-burgundy"
-                    aria-label="Tiến trình bài hát" />
-                <div class="flex justify-between text-[10px] text-gray-600 font-mono">
-                    <span id="current-time">00:00</span>
-                    <span id="total-duration">00:00</span>
-                </div>
-            </div>
-
-            <div class="flex items-center justify-between px-2">
-                <button id="loop-btn" class="text-gray-600 hover:text-burgundy transition text-xs"
-                    title="Lặp lại bài hát" aria-label="Lặp lại bài hát">
-                    <i class="fa-solid fa-repeat"></i>
-                </button>
-
-                <div class="flex items-center space-x-2">
-                    <button id="prev-btn" class="text-gray-700 hover:text-burgundy transition text-sm"
-                        aria-label="Bài trước">
-                        <i class="fa-solid fa-backward-step"></i>
-                    </button>
-                    <button id="play-pause-btn"
-                        class="w-9 h-9 bg-burgundy text-white rounded-full flex items-center justify-center shadow hover:bg-rosegold transition"
-                        aria-label="Phát hoặc tạm dừng">
-                        <i class="fa-solid fa-play text-sm ml-0.5" id="play-icon"></i>
-                    </button>
-                    <button id="next-btn" class="text-gray-700 hover:text-burgundy transition text-sm"
-                        aria-label="Bài tiếp theo">
-                        <i class="fa-solid fa-forward-step"></i>
-                    </button>
-                </div>
-
-                <div class="flex items-center gap-1.5">
-                    <button id="mute-btn" class="shrink-0 text-gray-700 hover:text-burgundy transition text-sm"
-                        title="Tắt/Mở âm thanh" aria-label="Tắt/Mở âm thanh">
-                        <i class="fa-solid fa-volume-high" id="volume-icon"></i>
-                    </button>
-                    <input type="range" id="volume-control" min="0" max="1" step="0.01" value="1"
-                        class="block w-12 md:w-16 cursor-pointer" title="Điều chỉnh âm lượng"
-                        aria-label="Âm lượng bài hát" />
-                    <span id="volume-level" class="w-7 text-right text-[10px] font-semibold tabular-nums text-gray-600"
-                        aria-hidden="true">100%</span>
-                </div>
-            </div>
-        </div>
-
-        <audio id="wedding-audio" preload="metadata"></audio>
-    </div>
-    <button type="button" id="music-player-show"
-        class="hidden fixed bottom-2 right-2 z-50 w-12 h-12 rounded-full bg-white/95 border border-rosegold/50 shadow-xl text-burgundy hover:bg-rose-50 transition md:bottom-5 md:right-5"
-        aria-label="Hiện trình phát nhạc" title="Hiện trình phát nhạc">
-        <i class="fa-solid fa-music" aria-hidden="true"></i>
-    </button>
-
-    <footer class="py-8 bg-stone-900 text-stone-400 text-center text-sm">
-        <p class="font-cursive text-2xl text-white mb-2">
-            Hoàng Trọng & Bùi Trang
-        </p>
-        <p>
-            © 2026 Lễ cưới Hoàng Trọng & Bùi Trang. Cảm ơn quý khách đã
-            chung vui cùng chúng tôi!
-        </p>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
-
+        <script src="script.js"></script>
+    </body>
 </html>
