@@ -41,6 +41,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const nextBtn = document.getElementById("next-btn");
     const muteBtn = document.getElementById("mute-btn");
     const volumeIcon = document.getElementById("volume-icon");
+    const volumeControl = document.getElementById("volume-control");
+    const volumeLevel = document.getElementById("volume-level");
+    const playerToggle = document.getElementById("music-player-toggle");
+    const musicPlayer = document.getElementById("music-player");
+    const playerShow = document.getElementById("music-player-show");
 
     let isPlaying = false;
 
@@ -61,6 +66,28 @@ document.addEventListener("DOMContentLoaded", function () {
         isPlaying = false;
         playIcon.classList.remove("fa-pause");
         playIcon.classList.add("fa-play", "ml-0.5");
+    }
+
+    function updateVolumeIcon() {
+        volumeLevel.innerText = `${Math.round(audio.volume * 100)}%`;
+        volumeControl.style.setProperty(
+            "--volume-progress",
+            `${audio.volume * 100}%`,
+        );
+        volumeIcon.classList.remove(
+            "fa-volume-high",
+            "fa-volume-low",
+            "fa-volume-xmark",
+            "text-red-500",
+        );
+
+        if (audio.muted || audio.volume === 0) {
+            volumeIcon.classList.add("fa-volume-xmark", "text-red-500");
+        } else if (audio.volume <= 0.5) {
+            volumeIcon.classList.add("fa-volume-low");
+        } else {
+            volumeIcon.classList.add("fa-volume-high");
+        }
     }
 
     function playAudio() {
@@ -175,15 +202,75 @@ document.addEventListener("DOMContentLoaded", function () {
 
     muteBtn.addEventListener("click", function () {
         audio.muted = !audio.muted;
-        if (audio.muted) {
-            volumeIcon.classList.remove("fa-volume-high");
-            volumeIcon.classList.add("fa-volume-xmark", "text-red-500");
-        } else {
-            volumeIcon.classList.remove("fa-volume-xmark", "text-red-500");
-            volumeIcon.classList.add("fa-volume-high");
+        updateVolumeIcon();
+    });
+
+    volumeControl.addEventListener("input", function () {
+        audio.volume = Number(volumeControl.value);
+        if (audio.volume > 0) {
+            audio.muted = false;
         }
+        updateVolumeIcon();
+    });
+
+    playerToggle.addEventListener("click", function () {
+        musicPlayer.classList.add("hidden");
+        playerShow.classList.remove("hidden");
+        playerToggle.setAttribute("aria-expanded", "false");
+        playerShow.focus();
+    });
+
+    playerShow.addEventListener("click", function () {
+        playerShow.classList.add("hidden");
+        musicPlayer.classList.remove("hidden");
+        playerToggle.setAttribute("aria-expanded", "true");
+        playerToggle.focus();
+    });
+
+    document.querySelectorAll("[data-copy-account]").forEach((button) => {
+        button.addEventListener("click", async function () {
+            const accountNumber = button.getAttribute("data-copy-account");
+            const card = button.closest("#gift .bg-white");
+            const status = card.querySelector("[data-copy-status]");
+            const label = button.querySelector("[data-copy-label]");
+            let copied = false;
+
+            if (navigator.clipboard && window.isSecureContext) {
+                try {
+                    await navigator.clipboard.writeText(accountNumber);
+                    copied = true;
+                } catch (error) {
+                    console.warn("Không thể dùng Clipboard API, thử cách dự phòng.", error);
+                }
+            }
+
+            if (!copied) {
+                const temporaryInput = document.createElement("textarea");
+                temporaryInput.value = accountNumber;
+                temporaryInput.setAttribute("readonly", "");
+                temporaryInput.style.position = "fixed";
+                temporaryInput.style.opacity = "0";
+                document.body.appendChild(temporaryInput);
+                temporaryInput.select();
+                copied = document.execCommand("copy");
+                temporaryInput.remove();
+            }
+
+            if (copied) {
+                label.textContent = "Đã sao chép";
+                status.textContent = "Đã sao chép số tài khoản.";
+                window.setTimeout(() => {
+                    label.textContent = "Sao chép";
+                    status.textContent = "";
+                }, 2000);
+            } else {
+                status.textContent =
+                    "Không sao chép được. Vui lòng chọn và sao chép số tài khoản thủ công.";
+            }
+        });
     });
 
     loadSong();
     playAudio();
+    updateVolumeIcon();
 });
