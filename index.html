@@ -87,6 +87,46 @@
             #volume-control:focus-visible {
                 box-shadow: 0 0 0 3px rgba(128, 0, 32, 0.16);
             }
+
+
+
+            #music-progress {
+                appearance: none;
+                -webkit-appearance: none;
+                height: 6px;
+                border-radius: 9999px;
+                background: linear-gradient(
+                    to right,
+                    #800020 0%,
+                    #800020 var(--progress, 0%),
+                    #eadde0 var(--progress, 0%),
+                    #eadde0 100%
+                );
+                outline: none;
+            }
+
+            #music-progress::-webkit-slider-thumb {
+                appearance: none;
+                -webkit-appearance: none;
+                width: 16px;
+                height: 16px;
+                border: 3px solid white;
+                border-radius: 50%;
+                background: #800020;
+                box-shadow: 0 1px 4px rgba(55, 10, 24, 0.3);
+                cursor: pointer;
+            }
+
+            #music-progress::-moz-range-thumb {
+                width: 11px;
+                height: 11px;
+                border: 3px solid white;
+                border-radius: 50%;
+                background: #800020;
+                box-shadow: 0 1px 4px rgba(55, 10, 24, 0.3);
+                cursor: pointer;
+            }
+
         </style>
     </head>
 
@@ -126,10 +166,10 @@
         </nav>
 
         <section
-            class="relative h-screen flex items-center justify-center text-center text-white bg-cover bg-top"
-            style="background-image: url(&quot;images/ONG_4104.jpg&quot;)"
+            class="relative h-screen flex items-center justify-center text-center text-white bg-cover bg-[position:center_10%]"
+            style="background-image: url(&quot;images/ONG_4104_new.jpg&quot;)"
         >
-            <div class="absolute inset-0 bg-overlay"></div>
+        <div class="absolute inset-0 bg-overlay"></div>
             <div class="relative z-10 px-4 max-w-3xl">
                 <p
                     class="text-lg md:text-xl font-light uppercase tracking-widest mb-3"
@@ -218,9 +258,10 @@
                         class="w-48 h-48 mx-auto rounded-full overflow-hidden shadow-lg border-4 border-rosegold/30"
                     >
                         <img
-                            src="images/ONG_3737.jpeg"
+                            src="images/ONG_3725_chure.jpg"
                             alt="Chú rể Hoàng Văn Trọng"
                             class="w-full h-full object-cover"
+                            style="scale: 1.8; translate: -40% 30%;"
                         />
                     </div>
                     <h3 class="font-serif text-2xl font-bold text-burgundy">
@@ -243,9 +284,10 @@
                         class="w-48 h-48 mx-auto rounded-full overflow-hidden shadow-lg border-4 border-rosegold/30"
                     >
                         <img
-                            src="images/ONG_4026.JPG"
+                            src="images/ONG_4026_codau.jpg"
                             alt="Cô dâu Bùi Thị Trang"
                             class="w-full h-full object-cover"
+                            style="scale: 1.4; translate: 0% 20%;"
                         />
                     </div>
                     <h3 class="font-serif text-2xl font-bold text-burgundy">
@@ -267,7 +309,7 @@
         <section id="event" class="py-20 bg-stone-100 px-6">
             <div class="max-w-5xl mx-auto text-center">
                 <h2 class="font-cursive text-5xl text-burgundy mb-2">
-                    Thời Gian & Địa Điểm
+                    Thư Mời
                 </h2>
                 <p class="font-serif italic text-gray-600 mb-12">
                     Rất hân hạnh được đón tiếp quý khách đến chung vui cùng gia
@@ -282,11 +324,15 @@
                             <i class="fa-solid fa-heart"></i>
                         </div>
                         <h3 class="font-serif text-2xl font-bold">
-                            Lễ Thành Hôn (Nhà Trai)
+                            Lễ Thành Hôn
                         </h3>
                         <p class="text-sm font-semibold text-gray-500">
-                            <i class="fa-regular fa-clock mr-1"></i> 09:00 -
+                            <i class="fa-regular fa-clock mr-1"></i> 10:00 -
                             Ngày 18/10/2026
+                        </p>
+                        <p class="text-sm font-semibold text-gray-500">
+                            <i class="fa-solid fa-house-chimney mr-1"></i>
+                            Tại Tư Gia Nhà Trai
                         </p>
                         <p class="text-sm text-gray-600">
                             <i
@@ -308,11 +354,15 @@
                             <i class="fa-solid fa-heart"></i>
                         </div>
                         <h3 class="font-serif text-2xl font-bold">
-                            Lễ Vũ Quy (Nhà Gái)
+                            Lễ Vũ Quy
                         </h3>
                         <p class="text-sm font-semibold text-gray-500">
-                            <i class="fa-regular fa-clock mr-1"></i> 09:00 -
-                            Ngày 17/10/2026
+                            <i class="fa-regular fa-clock mr-1"></i> 06:00 -
+                            Ngày 18/10/2026
+                        </p>
+                        <p class="text-sm font-semibold text-gray-500">
+                            <i class="fa-solid fa-house-chimney mr-1"></i>
+                            Tại Tư Gia Nhà Gái
                         </p>
                         <p class="text-sm text-gray-600">
                             <i
@@ -322,6 +372,50 @@
                         </p>
                         <a
                             href="https://maps.app.goo.gl/4i5wqFDXYkfHqy9V6?g_st=ic"
+                            target="_blank"
+                            class="inline-block text-xs uppercase tracking-wider text-burgundy border border-burgundy px-4 py-2 rounded-full hover:bg-burgundy hover:text-white transition"
+                            >Xem bản đồ</a
+                        >
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="event" class="py-20 bg-stone-100 px-6" style="background-color: #FAF7F2;">
+            <div class="max-w-5xl mx-auto text-center">
+                <h2 class="font-cursive text-5xl text-burgundy mb-2">
+                    Tiệc Mừng Lễ Thành Hôn
+                </h2>
+                <p class="font-serif italic text-gray-600 mb-12">
+                    Hân hạnh được tiếp đãi quý khách đến tham dự tiệc mừng thành hôn của chúng tôi
+                </p>
+
+                <div class="grid md:grid-cols-1 gap-8">
+                    <div
+                        class="bg-white p-8 rounded-2xl shadow-sm space-y-4 border-t-4 border-burgundy"
+                    >
+                        <div class="text-burgundy text-3xl">
+                            <i class="fa-solid fa-heart"></i>
+                        </div>
+                        <h3 class="font-serif text-2xl font-bold">
+                            Tiệc Mừng Thành Hôn
+                        </h3>
+                        <p class="text-sm font-semibold text-gray-500">
+                            <i class="fa-regular fa-clock mr-1"></i> 10:30 -
+                            Ngày 18/10/2026
+                        </p>
+                        <p class="text-sm font-semibold text-gray-500">
+                            <i class="fa-solid fa-house-chimney mr-1"></i>
+                            Tại Tư Gia Nhà Trai
+                        </p>
+                        <p class="text-sm text-gray-600">
+                            <i
+                                class="fa-solid fa-location-dot mr-1 text-rosegold"
+                            ></i>
+                            Thôn Quế Lĩnh, Phường Trần Liễu, Thành phố Hải Phòng
+                        </p>
+                        <a
+                            href="https://maps.app.goo.gl/zn9c4A9Ntsem9Tbo7"
                             target="_blank"
                             class="inline-block text-xs uppercase tracking-wider text-burgundy border border-burgundy px-4 py-2 rounded-full hover:bg-burgundy hover:text-white transition"
                             >Xem bản đồ</a
@@ -344,7 +438,7 @@
                     class="overflow-hidden rounded-xl shadow-sm aspect-square bg-gray-200"
                 >
                     <img
-                        src="images/ONG_3505.JPG"
+                        src="images/ONG_3505_new.jpg"
                         alt="Cô dâu và chú rể trong trang phục đỏ"
                         class="w-full h-full object-cover hover:scale-105 transition duration-500"
                     />
@@ -353,7 +447,7 @@
                     class="overflow-hidden rounded-xl shadow-sm aspect-square bg-gray-200"
                 >
                     <img
-                        src="images/ONG_3898.JPG"
+                        src="images/ONG_3478_new.jpg"
                         alt="Khoảnh khắc thân mật của cô dâu và chú rể"
                         class="w-full h-full object-cover hover:scale-105 transition duration-500"
                     />
@@ -362,7 +456,7 @@
                     class="overflow-hidden rounded-xl shadow-sm aspect-square bg-gray-200"
                 >
                     <img
-                        src="images/ONG_4112.jpeg"
+                        src="images/ONG_4112_new.jpg"
                         alt="Cô dâu và chú rể nhìn nhau"
                         class="w-full h-full object-cover hover:scale-105 transition duration-500"
                     />
@@ -371,16 +465,17 @@
                     class="overflow-hidden rounded-xl shadow-sm aspect-square bg-gray-200"
                 >
                     <img
-                        src="images/ONG_4104.jpeg"
+                        src="images/ONG_4089_new.jpg"
                         alt="Cô dâu và chú rể trong điệu nhảy dưới ánh đèn"
-                        class="w-full h-full object-cover hover:scale-105 transition duration-500"
+                        class="w-full h-full object-cover object-[center_20%] scale-[1.6] origin-[55%_20%] hover:scale-[1.70] transition duration-500"
+
                     />
                 </div>
                 <div
                     class="overflow-hidden rounded-xl shadow-sm aspect-square bg-gray-200"
                 >
                     <img
-                        src="images/ONG_3620.jpeg"
+                        src="images/ONG_3620_new.jpg"
                         alt="Cô dâu cầm bó hoa đỏ"
                         class="w-full h-full object-cover hover:scale-105 transition duration-500"
                     />
@@ -389,7 +484,7 @@
                     class="overflow-hidden rounded-xl shadow-sm aspect-square bg-gray-200"
                 >
                     <img
-                        src="images/ONG_3478.JPG"
+                        src="images/ONG_3898_new.jpg"
                         alt="Cô dâu và chú rể bên khung cửa sáng"
                         class="w-full h-full object-cover hover:scale-105 transition duration-500"
                     />
@@ -508,7 +603,7 @@
                         Chú Rể: Hoàng Văn Trọng
                     </h3>
                     <div
-                        class="w-48 h-48 mx-auto bg-gray-100 rounded-lg flex items-center justify-center my-4"
+                        class="w-48 h-48 mx-auto rounded-lg flex items-center justify-center my-4"
                     >
                         <span class="text-xs text-gray-400"
                             ><img src="images/qr_trong.png" alt="QR chú rể" srcset=""></span
@@ -550,7 +645,7 @@
                         Cô Dâu: Bùi Thị Trang
                     </h3>
                     <div
-                        class="w-48 h-48 mx-auto bg-gray-100 rounded-lg flex items-center justify-center my-4"
+                        class="w-48 h-48 mx-auto rounded-lg flex items-center justify-center my-4"
                     >
                         <span class="text-xs text-gray-400"
                             ><img src="images/qr_trang.png" alt="QR cô dâu" srcset=""></span
@@ -643,7 +738,7 @@
                         id="music-progress"
                         min="0"
                         value="0"
-                        class="w-full h-2 bg-gray-300 rounded-lg appearance-none cursor-pointer accent-burgundy"
+                        class="w-full cursor-pointer"
                         aria-label="Tiến trình bài hát"
                     />
                     <div

@@ -48,6 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const playerShow = document.getElementById("music-player-show");
 
     let isPlaying = false;
+    let lastVolume = 1;
 
     function loadSong() {
         const selectedOption =
@@ -88,6 +89,15 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
             volumeIcon.classList.add("fa-volume-high");
         }
+    }
+
+    function updateProgressBar() {
+        const percent = audio.duration
+            ? (audio.currentTime / audio.duration) * 100
+            : 0;
+
+        progress.value = percent;
+        progress.style.setProperty("--progress", `${percent}%`);
     }
 
     function playAudio() {
@@ -162,12 +172,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
     loopBtn.addEventListener("click", function () {
         audio.loop = !audio.loop;
+        const icon = loopBtn.querySelector("i") || loopBtn;
         if (audio.loop) {
-            loopBtn.classList.remove("text-gray-400");
+            loopBtn.classList.remove("text-gray-600", "text-gray-400");
             loopBtn.classList.add("text-burgundy", "font-bold");
+            
         } else {
             loopBtn.classList.remove("text-burgundy", "font-bold");
-            loopBtn.classList.add("text-gray-400");
+            loopBtn.classList.add("text-gray-600");
         }
     });
 
@@ -179,8 +191,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     audio.addEventListener("timeupdate", function () {
         if (audio.duration) {
-            const progressPercent = (audio.currentTime / audio.duration) * 100;
-            progress.value = progressPercent;
+            updateProgressBar();
 
             let curMin = Math.floor(audio.currentTime / 60);
             let curSec = Math.floor(audio.currentTime % 60);
@@ -197,11 +208,22 @@ document.addEventListener("DOMContentLoaded", function () {
     progress.addEventListener("input", function () {
         if (audio.duration) {
             audio.currentTime = (progress.value / 100) * audio.duration;
+            updateProgressBar();
         }
     });
 
     muteBtn.addEventListener("click", function () {
-        audio.muted = !audio.muted;
+        if (audio.volume > 0) {
+            // Đang có tiếng -> nhớ mức hiện tại rồi về 0
+            lastVolume = audio.volume;
+            audio.volume = 0;
+        } else {
+            // Đang là 0 -> trả về mức gần nhất (mặc định 0.5 nếu chưa có)
+            audio.volume = lastVolume > 0 ? lastVolume : 0.5;
+        }
+
+        audio.muted = false;
+        volumeControl.value = audio.volume; // đồng bộ thanh kéo
         updateVolumeIcon();
     });
 
@@ -211,6 +233,13 @@ document.addEventListener("DOMContentLoaded", function () {
             audio.muted = false;
         }
         updateVolumeIcon();
+    });
+
+    volumeControl.addEventListener("change", function () {
+        const v = Number(volumeControl.value);
+        if (v > 0) {
+            lastVolume = v;
+        }
     });
 
     playerToggle.addEventListener("click", function () {
@@ -271,6 +300,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     loadSong();
-    playAudio();
+    // playAudio();
     updateVolumeIcon();
 });
