@@ -300,6 +300,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     loadSong();
-    // playAudio();
+    playAudio();
     updateVolumeIcon();
 });
