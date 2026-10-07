@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Đám Cưới Hoàng Trọng & Bùi Trang</title>
+        <title>Thư mời thiệp cưới Hoàng Trọng & Bùi Trang</title>
         <script src="https://cdn.tailwindcss.com"></script>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -127,6 +127,13 @@
                 cursor: pointer;
             }
             
+            #music-player-show.is-playing i {
+                animation: spin 4s linear infinite;
+            }
+            @keyframes spin {
+                to { transform: rotate(360deg); }
+            }
+
             #main-nav {
                 border-bottom: 1px solid transparent;
                 transition: box-shadow 0.2s ease, border-color 0.2s ease;
@@ -396,13 +403,13 @@
         <section id="event" class="py-20 bg-stone-100 px-6" style="background-color: #FAF7F2;">
             <div class="max-w-5xl mx-auto text-center">
                 <h2 class="font-cursive text-5xl text-burgundy mb-2">
-                    Tiệc Mừng Lễ Thành Hôn
+                    Hân hạnh được tiếp đãi quý khách 
                 </h2>
-                <p class="font-serif italic text-gray-600 mb-12">
-                    Hân hạnh được tiếp đãi quý khách đến tham dự tiệc mừng thành hôn của chúng tôi
+                <p class="font-serif italic text-gray-600 mb-12" style="font-size: large;">
+                    đến tham dự bữa cơm thân mật cùng gia đình chúng tôi
                 </p>
 
-                <div class="grid md:grid-cols-1 gap-8">
+                <div class="grid md:grid-cols-2 gap-8">
                     <div
                         class="bg-white p-8 rounded-2xl shadow-sm space-y-4 border-t-4 border-burgundy"
                     >
@@ -410,11 +417,11 @@
                             <i class="fa-solid fa-heart"></i>
                         </div>
                         <h3 class="font-serif text-2xl font-bold">
-                            Tiệc Mừng Thành Hôn
+                            Tiệc Mừng Lễ Thành Hôn
                         </h3>
                         <p class="text-sm font-semibold text-gray-500">
-                            <i class="fa-regular fa-clock mr-1"></i> 10:30 -
-                            Ngày 18/10/2026
+                            <i class="fa-regular fa-clock mr-1"></i> 16:00 -
+                            Ngày 17/10/2026
                         </p>
                         <p class="text-sm font-semibold text-gray-500">
                             <i class="fa-solid fa-house-chimney mr-1"></i>
@@ -428,6 +435,37 @@
                         </p>
                         <a
                             href="https://maps.app.goo.gl/zn9c4A9Ntsem9Tbo7"
+                            target="_blank"
+                            class="inline-block text-xs uppercase tracking-wider text-burgundy border border-burgundy px-4 py-2 rounded-full hover:bg-burgundy hover:text-white transition"
+                            >Xem bản đồ</a
+                        >
+                    </div>
+
+                    <div
+                        class="bg-white p-8 rounded-2xl shadow-sm space-y-4 border-t-4 border-burgundy"
+                    >
+                        <div class="text-rosegold text-3xl">
+                            <i class="fa-solid fa-heart"></i>
+                        </div>
+                        <h3 class="font-serif text-2xl font-bold">
+                            Tiệc Mừng Lễ Vu Quy
+                        </h3>
+                        <p class="text-sm font-semibold text-gray-500">
+                            <i class="fa-regular fa-clock mr-1"></i> 16:30 -
+                            Ngày 17/10/2026
+                        </p>
+                        <p class="text-sm font-semibold text-gray-500">
+                            <i class="fa-solid fa-house-chimney mr-1"></i>
+                            Tại Tư Gia Nhà Gái
+                        </p>
+                        <p class="text-sm text-gray-600">
+                            <i
+                                class="fa-solid fa-location-dot mr-1 text-rosegold"
+                            ></i>
+                            Thôn Khoái Thọ, xã Sông Lô, tỉnh Phú Thọ
+                        </p>
+                        <a
+                            href="https://maps.app.goo.gl/4i5wqFDXYkfHqy9V6?g_st=ic"
                             target="_blank"
                             class="inline-block text-xs uppercase tracking-wider text-burgundy border border-burgundy px-4 py-2 rounded-full hover:bg-burgundy hover:text-white transition"
                             >Xem bản đồ</a
@@ -697,7 +735,7 @@
 
         <div
             id="music-player"
-            class="fixed bottom-2 right-2 z-50 bg-white/95 backdrop-blur-md border border-rosegold/50 shadow-2xl rounded-2xl p-3 w-64 md:bottom-5 md:right-5 md:p-4 md:w-80 text-gray-800 transition-all duration-300"
+            class="hidden fixed bottom-2 right-2 z-50 bg-white/95 backdrop-blur-md border border-rosegold/50 shadow-2xl rounded-2xl p-3 w-64 md:bottom-5 md:right-5 md:p-4 md:w-80 text-gray-800 transition-all duration-300"
         >
             <div class="flex items-center justify-between gap-2">
                 <div class="flex items-center space-x-2 overflow-hidden">
@@ -836,7 +874,7 @@
         <button
             type="button"
             id="music-player-show"
-            class="hidden fixed bottom-2 right-2 z-50 w-12 h-12 rounded-full bg-white/95 border border-rosegold/50 shadow-xl text-burgundy hover:bg-rose-50 transition md:bottom-5 md:right-5"
+            class="fixed bottom-2 right-2 z-50 w-12 h-12 rounded-full bg-white/95 border border-rosegold/50 shadow-xl text-burgundy hover:bg-rose-50 transition md:bottom-5 md:right-5"
             aria-label="Hiện trình phát nhạc"
             title="Hiện trình phát nhạc"
         >

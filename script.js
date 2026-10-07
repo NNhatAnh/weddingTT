@@ -123,6 +123,20 @@ document.addEventListener("DOMContentLoaded", function () {
         updateUIPause();
     }
 
+    function updateUIPlay() {
+        isPlaying = true;
+        playerShow.classList.add("is-playing");   // thêm dòng này
+        playIcon.classList.remove("fa-play", "ml-0.5");
+        playIcon.classList.add("fa-pause");
+    }
+
+    function updateUIPause() {
+        isPlaying = false;
+        playerShow.classList.remove("is-playing"); // thêm dòng này
+        playIcon.classList.remove("fa-pause");
+        playIcon.classList.add("fa-play", "ml-0.5");
+    }
+
     function enableAutoplayOnUserInteraction() {
         const handleInteraction = () => {
             if (!isPlaying) {
