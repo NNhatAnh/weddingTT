@@ -126,13 +126,25 @@
                 box-shadow: 0 1px 4px rgba(55, 10, 24, 0.3);
                 cursor: pointer;
             }
+            
+            #main-nav {
+                border-bottom: 1px solid transparent;
+                transition: box-shadow 0.2s ease, border-color 0.2s ease;
+            }
+
+            #main-nav.nav-scrolled {
+                border-bottom-color: #fcf4f2;
+                box-shadow: 0px 2px 4px 0px #eac7c7;
+            }
 
         </style>
     </head>
 
     <body class="bg-cream text-gray-800 font-sans antialiased">
         <nav
+            id="main-nav"
             class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100 py-3 px-6"
+            style="background-color: #fcf4f2;"    
         >
             <div class="max-w-6xl mx-auto flex justify-between items-center">
                 <a
@@ -143,16 +155,16 @@
                 <div
                     class="hidden md:flex space-x-6 text-sm font-medium uppercase tracking-wider text-gray-700"
                 >
-                    <a href="#about" class="hover:text-burgundy transition"
+                    <a href="#about" class="hover:text-burgundy transition" style="font-weight: bold;"
                         >Cặp Đôi</a
                     >
-                    <a href="#event" class="hover:text-burgundy transition"
+                    <a href="#event" class="hover:text-burgundy transition" style="font-weight: bold;"
                         >Sự Kiện</a
                     >
-                    <a href="#gallery" class="hover:text-burgundy transition"
+                    <a href="#gallery" class="hover:text-burgundy transition" style="font-weight: bold;"
                         >Album Ảnh</a
                     >
-                    <a href="#gift" class="hover:text-burgundy transition"
+                    <a href="#gift" class="hover:text-burgundy transition" style="font-weight: bold;"
                         >Mừng Cưới</a
                     >
                 </div>

@@ -299,6 +299,18 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
+    const nav = document.getElementById("main-nav");
+    const hero = document.querySelector("section"); // section đầu tiên = hero
+
+    function updateNavShadow() {
+        const heroBottom = hero.offsetHeight - nav.offsetHeight;
+        nav.classList.toggle("nav-scrolled", window.scrollY >= heroBottom);
+    }
+
+    window.addEventListener("scroll", updateNavShadow, { passive: true });
+    window.addEventListener("resize", updateNavShadow);
+    updateNavShadow();
+
     loadSong();
     playAudio();
     updateVolumeIcon();
